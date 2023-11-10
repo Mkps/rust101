@@ -1,0 +1,9 @@
+[package]
+name = "hello_world"
+version = "0.0.1"
+author = "Alexis LOUBIERE alex.loubiere@gmail.com"
+
+[[bin]]
+name = "hello_world_crate"
+path = "./part_00.rs"
+
