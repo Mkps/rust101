@@ -1,0 +1,9 @@
+[package]
+name = "numberOrDefault"
+version = "0.0.1"
+author = "Alexis LOUBIERE alex.loubiere@gmail.com"
+
+[[bin]]
+name = "number_or_default"
+path = "./main.rs"
+
