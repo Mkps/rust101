@@ -15,10 +15,10 @@ impl<T> SomethingOrNothing<T>
     {
         match o { None => Nothing, Some(t) => Something(t) }
     }
-    fn to_option(self) -> Option<T>
-    {
-        match self  { Nothing => None, Something(t) => Some(t) }
-    }
+//    fn to_option(self) -> Option<T>
+//    {
+//        match self  { Nothing => None, Something(t) => Some(t) }
+//    }
 }
 
 fn call_constructor_i32(x: i32) -> SomethingOrNothing<i32>
@@ -110,4 +110,8 @@ pub fn main()
     let f32_vec = read_fvec();
     let f32_min = vec_min(f32_vec);
     f32_min.print();
+    let athing = call_constructor_i32(4);
+    athing.print();
+    let fthing = call_constructor_f32(2.5);
+    fthing.print();
 }

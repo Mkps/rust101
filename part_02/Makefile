@@ -13,18 +13,18 @@ LDFLAGS = `pkg-config --libs gtk4`
 all: build
 
 build:
+	@echo "Building crate..."
 	@cargo build
 	@echo "Done!"
 
 run:
-	@echo "Cargo Run"
+	@echo "Running crate..."
 	@cargo run
 
 clean:
-	@echo "Cleaning object files..."
-	@rm Cargo.lock
-	@rm -rf $(OBJ_DIR)
+	@echo "Cleaning crate files..."
+	@cargo clean
 
-re: fclean all
+re: clean all
 
-.PHONY: all clean re run
+.PHONY: all clean re run build
