@@ -7,6 +7,7 @@ pub enum SomethingOrNothing<T>
 pub use self::SomethingOrNothing::*;
 
 type NumberOrNothing = SomethingOrNothing<i32>;
+type FloatOrNothing = SomethingOrNothing<f32>;
 
 impl<T> SomethingOrNothing<T>
 {
@@ -20,7 +21,12 @@ impl<T> SomethingOrNothing<T>
     }
 }
 
-fn call_constructor(x: i32) -> SomethingOrNothing<i32>
+fn call_constructor_i32(x: i32) -> SomethingOrNothing<i32>
+{
+    SomethingOrNothing::new(Some(x))
+}
+
+fn call_constructor_f32(x: f32) -> SomethingOrNothing<f32>
 {
     SomethingOrNothing::new(Some(x))
 }
@@ -53,9 +59,20 @@ impl Minimum for i32
     }
 }
 
+impl Minimum for f32
+{
+    fn min(self, b: Self) -> Self
+    {
+        if self < b { self }
+        else        { b }
+    }
+}
 
-impl NumberOrNothing {
-    pub fn print(self) {
+
+impl NumberOrNothing
+{
+    pub fn print(self)
+    {
         match self {
             Nothing => println!("The number is: <nothing>"),
             Something(n) => println!("The number is: {}", n),
@@ -63,14 +80,34 @@ impl NumberOrNothing {
     }
 }
 
+impl FloatOrNothing
+{
+    pub fn print(self)
+    {
+        match self
+        {
+            Nothing => println!("The float is: <nothing>"),
+            Something(n) => println!("The f32 number is: {}", n),
+        };
+    }
+}
 
-
-fn read_vec() -> Vec<i32> {
+fn read_vec() -> Vec<i32>
+{
     vec![18,5,7,3,9,27]
 }
-pub fn main() {
+
+fn read_fvec() -> Vec<f32>
+{
+    vec![0.5, 1.5, 4.2, 2.0, 1.8]
+}
+
+pub fn main()
+{
     let vec = read_vec();
     let min = vec_min(vec);
     min.print();
+    let f32_vec = read_fvec();
+    let f32_min = vec_min(f32_vec);
+    f32_min.print();
 }
-
