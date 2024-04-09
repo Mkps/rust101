@@ -56,6 +56,14 @@ fn vec_print(v: Vec<i32>) {
     }
 }
 
+fn vec_sum(v: Vec<i32>) -> i32 {
+    let mut min = 0;
+    for e in v {
+        min += e;
+    }
+    min
+}
+
 pub fn main()
 {
     let i = 32;
@@ -77,4 +85,7 @@ pub fn main()
     min.print();
     let vec = read_vec();
     vec_print(vec);
+    let vec = read_vec();
+    let sum = vec_sum(vec);
+    println!("The sum of vec is {}", sum);
 }
