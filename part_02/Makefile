@@ -1,7 +1,7 @@
 SRC_NAME =	main.c acpi_access.c battery_management.c pwr_management.c
 
 SRC = $(addprefix $(SRCDIR), $(SRC_NAME))
-OBJ = ./target
+OBJ = target/
 
 CC = cc
 
